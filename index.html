@@ -8,41 +8,39 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: #050;
+      background: #000;
       color: #fff;
       font-family: sans-serif;
       height: 100%;
       overflow: hidden;
     }
 
-    #button-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);  /* This centers the image hi */
-      z-index: 1000;
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
 
-    #button-image {
+    #button-container img {
       cursor: pointer;
       width: 200px;  /* Adjust size as needed */
       height: auto;
       border: none;  /* Remove any default border */
+      animation: blink 2s infinite; /* 2s duration, infinite loop */
     }
 
-
-    button {
-      padding: 12px 20px;
-      font-size: 1rem;
-      background: pink;
-      color: black;
-      border: 2px solid white;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: white;
-      color: black;
+    #button-container p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: white;
+      font-weight: bold;
+      font-family: 'Times New Roman', Times, serif;
     }
 
     #view-wrapper {
@@ -62,7 +60,8 @@
 </head>
 <body>
   <div id="button-container">
-    <button onclick="loadStreetView()">View My Location</button>
+    <img src="images/dethnote.png" alt="View your location" onclick="loadStreetView()">
+    <p>View Your Location</p>
   </div>
 
   <div id="view-wrapper">
@@ -85,6 +84,9 @@
                 zoom: 1
               }
             );
+            
+            // Hide the button after clicking
+            document.getElementById("button-container").style.display = "none";
           },
           function (error) {
             alert("Unable to get your location: " + error.message);
@@ -96,15 +98,8 @@
     }
   </script>
 
-  <script>
-    function initMap() {
-      // The Google Maps API is loaded and ready to use
-      // No need to do anything yet, just ensures API is ready before user clicks
-    }
-  </script>
   <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnFth21A5C9fURGJQiOBjaxZhmI4cn3FY&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnFth21A5C9fURGJQiOBjaxZhmI4cn3FY&callback=()=>{}">
   </script>
-
 </body>
 </html>
