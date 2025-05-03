@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Street View Pixel Art</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #button-container {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 1rem;
+      background: black;
+      color: white;
+      border: 2px solid white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: white;
+      color: black;
+    }
+
+    #view-wrapper {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: black;
+    }
+
+    #street-view {
+      width: 160px;           /* Tiny resolution */
+      height: 90px;
+      transform: scale(12.5); /* Scale up to fill screen */
+      transform-origin: top left;
+      image-rendering: pixelated;
+      filter: grayscale(100%) contrast(160%) brightness(85%);
+    }
+  </style>
+</head>
+<body>
+  <div id="button-container">
+    <button onclick="loadStreetView()">View My Location</button>
+  </div>
+
+  <div id="view-wrapper">
+    <div id="street-view"></div>
+  </div>
+
+  <script>
+    function loadStreetView() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            new google.maps.StreetViewPanorama(
+              document.getElementById("street-view"),
+              {
+                position: { lat, lng },
+                pov: { heading: 0, pitch: 0 },
+                zoom: 1
+              }
+            );
+          },
+          function (error) {
+            alert("Unable to get your location: " + error.message);
+          }
+        );
+      } else {
+        alert("Geolocation is not supported by your browser.");
+      }
+    }
+  </script>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=()=>{}">
+  </script>
+</body>
+</html>
