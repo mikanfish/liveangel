@@ -70,7 +70,6 @@
       object-fit: cover;
       image-rendering: pixelated;
       transform: scale(0.3);
-      display: none;
     }
   </style>
 </head>
@@ -105,7 +104,6 @@
             
             // Hide the button after clicking
             document.getElementById("button-container").style.display = "none";
-            document.getElementById("street-view").style.display = "block";
           },
           function (error) {
             alert("Unable to get your location: " + error.message);
@@ -115,25 +113,6 @@
         alert("Geolocation is not supported by your browser.");
       }
     }
-
-    // document.addEventListener("click", function(event) {
-    //   const streetView = document.getElementById("street-view");
-    //   const buttonContainer = document.getElementById("button-container");
-    //   const streetViewRect = streetView.getBoundingClientRect();
-    //   const buffer = 200; // Buffer zone of 50px around the map
-
-    //   // Check if the click is outside of the map area, including buffer
-    //   if (
-    //     event.clientX < streetViewRect.left - buffer ||
-    //     event.clientX > streetViewRect.right + buffer ||
-    //     event.clientY < streetViewRect.top - buffer ||
-    //     event.clientY > streetViewRect.bottom + buffer
-    //   ) {
-    //     // Hide the map and show the button
-    //     streetView.style.display = "none";
-    //     buttonContainer.style.display = "block";
-    //   }
-    // });
   </script>
 
 
