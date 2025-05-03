@@ -98,8 +98,16 @@
     }
   </script>
 
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnFth21A5C9fURGJQiOBjaxZhmI4cn3FY&callback=()=>{}">
+
+  <script>
+    function initMap() {
+      // The Google Maps API is loaded and ready to use
+      // No need to do anything yet, just ensures API is ready before user clicks
+    }
   </script>
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnFth21A5C9fURGJQiOBjaxZhmI4cn3FY&callback=initMap">
+  </script>
+
 </body>
 </html>
