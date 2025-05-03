@@ -86,33 +86,44 @@
   </div>
 
   <script>
-    function loadStreetView() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          function (position) {
-            const lat = position.coords.latitude;
-            const lng = position.coords.longitude;
-            console.log("Location:", lat, lng);  // Log the coordinates for debugging
-            new google.maps.StreetViewPanorama(
-              document.getElementById("street-view"),
-              {
-                position: { lat, lng },
-                pov: { heading: 0, pitch: 0 },
-                zoom: 1
-              }
-            );
-            
-            // Hide the button after clicking
-            document.getElementById("button-container").style.display = "none";
-          },
-          function (error) {
-            alert("Unable to get your location: " + error.message);
+   function loadStreetView() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function (position) {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          const accuracy = position.coords.accuracy;
+
+          console.log("Location:", lat, lng);
+          console.log("Accuracy in meters:", accuracy);
+
+          if (accuracy > 1000) {
+            alert("Location may be imprecise. Accuracy: " + Math.round(accuracy) + " meters.");
           }
-        );
-      } else {
-        alert("Geolocation is not supported by your browser.");
-      }
+
+          new google.maps.StreetViewPanorama(
+            document.getElementById("street-view"),
+            {
+              position: { lat, lng },
+              pov: { heading: 0, pitch: 0 },
+              zoom: 1
+            }
+          );
+        },
+        function (error) {
+          alert("Unable to get your location: " + error.message);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
     }
+  }
+
   </script>
 
 
