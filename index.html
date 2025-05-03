@@ -50,6 +50,8 @@
       color: white;
       font-weight: bold;
       font-family: 'Times New Roman', Times, serif;
+      animation: blink 2s infinite;
+      align-items: center;
     }
 
     #view-wrapper {
@@ -65,12 +67,13 @@
       filter: grayscale(100%) contrast(180%) brightness(85%);
       object-fit: cover;
       image-rendering: pixelated;
+      transform: scale(2);
     }
   </style>
 </head>
 <body>
   <div id="button-container">
-    <img src="images/dethnote.png" alt="View your location" onclick="loadStreetView()">
+    <img src="images/dethnote.png" alt="Click here to instantly Teleport" onclick="loadStreetView()">
     <p>View Your Location</p>
   </div>
 
