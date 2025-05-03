@@ -119,9 +119,16 @@
     document.addEventListener("click", function(event) {
       const streetView = document.getElementById("street-view");
       const buttonContainer = document.getElementById("button-container");
-      
-      // Check if the click is outside of the #street-view element
-      if (!streetView.contains(event.target) && !buttonContainer.contains(event.target)) {
+      const streetViewRect = streetView.getBoundingClientRect();
+      const buffer = 50; // Buffer zone of 50px around the map
+
+      // Check if the click is outside of the map area, including buffer
+      if (
+        event.clientX < streetViewRect.left - buffer ||
+        event.clientX > streetViewRect.right + buffer ||
+        event.clientY < streetViewRect.top - buffer ||
+        event.clientY > streetViewRect.bottom + buffer
+      ) {
         // Hide the map and show the button
         streetView.style.display = "none";
         buttonContainer.style.display = "block";
