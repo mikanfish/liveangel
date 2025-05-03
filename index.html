@@ -17,11 +17,19 @@
 
     #button-container {
       position: absolute;
-      top: 20px;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);  /* This centers the image */
       z-index: 1000;
     }
+
+    #button-image {
+      cursor: pointer;
+      width: 200px;  /* Adjust size as needed */
+      height: auto;
+      border: none;  /* Remove any default border */
+    }
+
 
     button {
       padding: 12px 20px;
@@ -45,12 +53,10 @@
     }
 
     #street-view {
-      width: 160px;           /* Tiny resolution */
-      height: 90px;
-      transform: scale(12.5); /* Scale up to fill screen */
-      transform-origin: top left;
-      image-rendering: pixelated;
+      width: 100%;
+      height: 100%;
       filter: grayscale(100%) contrast(160%) brightness(85%);
+      object-fit: cover;
     }
   </style>
 </head>
@@ -70,6 +76,7 @@
           function (position) {
             const lat = position.coords.latitude;
             const lng = position.coords.longitude;
+            console.log("Location:", lat, lng);  // Log the coordinates for debugging
             new google.maps.StreetViewPanorama(
               document.getElementById("street-view"),
               {
@@ -90,7 +97,7 @@
   </script>
 
   <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoaYnKL3cKSd_vE_ER_uWkYZ1b2NLJyHE&callback=()=>{}">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnFth21A5C9fURGJQiOBjaxZhmI4cn3FY&callback=()=>{}">
   </script>
 </body>
 </html>
