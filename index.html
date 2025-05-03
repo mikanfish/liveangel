@@ -97,9 +97,6 @@
           console.log("Location:", lat, lng);
           console.log("Accuracy in meters:", accuracy);
 
-          if (accuracy > 1000) {
-            alert("Location may be imprecise. Accuracy: " + Math.round(accuracy) + " meters.");
-          }
 
           new google.maps.StreetViewPanorama(
             document.getElementById("street-view"),
@@ -109,7 +106,9 @@
               zoom: 1
             }
           );
+          document.getElementById("button-container").style.display = "none";
         },
+        
         function (error) {
           alert("Unable to get your location: " + error.message);
         },
@@ -119,6 +118,7 @@
           maximumAge: 0
         }
       );
+      
     } else {
       alert("Geolocation is not supported by your browser.");
     }
