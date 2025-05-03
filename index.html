@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Street View Pixel Art</title>
+  <title>Angel Portal</title>
   <style>
     html, body {
       margin: 0;
@@ -27,31 +27,32 @@
       }
     }
     #button-container {
-      display: flex;
-      justify-content: center; /* Centers the content horizontally */
-      align-items: center;     /* Centers the content vertically */
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%); /* Ensures it is exactly centered */
+      transform: translate(-50%, -50%);
       z-index: 1000;
-    }
-    #button-container img {
-      cursor: pointer;
-      width: 300px;  /* Adjust size as needed */
-      height: auto;
-      border: none;  /* Remove any default border */
-      animation: blink 2s infinite; /* 2s duration, infinite loop */
+      text-align: center;  /* Center the text and image horizontally */
     }
 
-    #button-container p {
-      margin-top: 10px;
-      font-size: 1rem;
-      color: white;
-      font-weight: bold;
+    #button-content {
+      display: flex;
+      flex-direction: column;  /* Stack the image and text vertically */
+      align-items: center;     /* Center content horizontally */
+      justify-content: center; /* Center content vertically */
+    }
+
+    #button-image {
+      width: 200px;  /* Adjust size as needed */
+      height: auto;
+      border: none;
+      cursor: pointer;
+    }
+
+    #button-text {
       font-family: 'Times New Roman', Times, serif;
-      animation: blink 2s infinite;
-      align-items: center;
+      margin-top: 10px;  /* Add some space between the image and text */
+      font-size: 12px;
     }
 
     #view-wrapper {
@@ -67,14 +68,16 @@
       filter: grayscale(100%) contrast(180%) brightness(85%);
       object-fit: cover;
       image-rendering: pixelated;
-      transform: scale(2);
+      transform: scale(20);
     }
   </style>
 </head>
 <body>
   <div id="button-container">
-    <img src="images/dethnote.png" alt="Click here to instantly Teleport" onclick="loadStreetView()">
-    <p>View Your Location</p>
+    <div id="button-content">
+      <img src="images/dethnote.png" alt="Click here to instantly Teleport" id="button-image" onclick="loadStreetView()" />
+      <p id="button-text">Click here to instantly Teleport</p>
+    </div>
   </div>
 
   <div id="view-wrapper">
