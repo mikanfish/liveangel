@@ -19,6 +19,23 @@
       padding: 1rem;
     }
 
+    .top-bar {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+    }
+
+    .top-bar button {
+      background: black;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
     .carousel {
       position: relative;
       width: 100%;
@@ -37,10 +54,8 @@
     }
 
     .slides img {
-      width: 100vw;
-      max-width: 100%;
+      width: 100%;
       max-height: 80vh;
-      height: auto;
       object-fit: contain;
       flex-shrink: 0;
     }
@@ -67,9 +82,27 @@
     .nav button:hover {
       background: #ddd;
     }
+
+    .grid {
+      display: none;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 900px;
+      justify-content: center;
+    }
+
+    .grid img {
+      width: 150px;
+      height: auto;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
+
+  <div class="top-bar">
+    <button onclick="toggleGrid()">All</button>
+  </div>
 
   <div class="carousel" id="carousel">
     <div class="slides" id="slides">
@@ -101,28 +134,65 @@
     </div>
   </div>
 
-  <div class="nav">
+  <div class="nav" id="nav">
     <button onclick="prevSlide()">← Prev</button>
     <button onclick="nextSlide()">Next →</button>
   </div>
 
+  <div class="grid" id="grid">
+    <!-- Images duplicated here for grid view -->
+    <img src="images/angel.jpg">
+    <img src="images/angel2.jpg">
+    <img src="images/angel3.jpg">
+    <img src="images/back.jpg">
+    <img src="images/bird2.jpg">
+    <img src="images/cats.jpg">
+    <img src="images/crest.jpg">
+    <img src="images/cross.jpg">
+    <img src="images/death.jpg">
+    <img src="images/dethnote.jpg">
+    <img src="images/dragon.jpg">
+    <img src="images/e2.jpg">
+    <img src="images/flower.jpg">
+    <img src="images/flowers.jpg">
+    <img src="images/horse1.jpg">
+    <img src="images/horse2.jpg">
+    <img src="images/house.jpg">
+    <img src="images/lion.jpg">
+    <img src="images/live2.jpg">
+    <img src="images/nb.jpg">
+    <img src="images/rain.jpg">
+    <img src="images/samp.jpg">
+    <img src="images/shine.jpg">
+    <img src="images/text.jpg">
+    <img src="images/vine.jpg">
+  </div>
+
   <script>
     const slides = document.getElementById('slides');
-    const totalSlides = slides.children.length;
+    const carousel = document.getElementById('carousel');
+    const nav = document.getElementById('nav');
+    const grid = document.getElementById('grid');
+
     let index = 0;
 
     function updateSlidePosition() {
-      slides.style.transform = `translateX(-${index * 100}vw)`;
+      const slideWidth = slides.children[0].offsetWidth;
+      slides.style.transform = `translateX(-${index * slideWidth}px)`;
     }
 
     function nextSlide() {
-      index = (index + 1) % totalSlides;
-      updateSlidePosition();
+      if (index < slides.children.length - 1) {
+        index++;
+        updateSlidePosition();
+      }
     }
 
     function prevSlide() {
-      index = (index - 1 + totalSlides) % totalSlides;
-      updateSlidePosition();
+      if (index > 0) {
+        index--;
+        updateSlidePosition();
+      }
     }
 
     // Swipe support
@@ -146,6 +216,20 @@
         nextSlide();
       }
     }
+
+    // Grid toggle
+    let showingGrid = false;
+
+    function toggleGrid() {
+      showingGrid = !showingGrid;
+      carousel.style.display = showingGrid ? 'none' : 'flex';
+      nav.style.display = showingGrid ? 'none' : 'flex';
+      grid.style.display = showingGrid ? 'flex' : 'none';
+    }
+
+    // Ensure alignment on load
+    window.addEventListener('load', updateSlidePosition);
+    window.addEventListener('resize', updateSlidePosition);
   </script>
 </body>
 </html>
