@@ -183,19 +183,18 @@
     }
   
     function nextSlide() {
-        const slides = document.getElementById('slides');
-        const totalSlides = slides.children.length;
-        currentSlide = (currentSlide + 1) % totalSlides; // Wrap to first
-        updateSlide();
+      if (index < slides.children.length - 1) {
+        index++;
+        updateSlidePosition();
+      }
     }
-
+  
     function prevSlide() {
-        const slides = document.getElementById('slides');
-        const totalSlides = slides.children.length;
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; // Wrap to last
-        updateSlide();
+      if (index > 0) {
+        index--;
+        updateSlidePosition();
+      }
     }
-
   
     // Grid toggle
     let showingGrid = false;
