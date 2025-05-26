@@ -6,25 +6,22 @@
   <title>Teleportation Destination</title>
   <style>
     body {
-        margin: 0;
-        background: white;
-        color: black;
-        font-family: sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        position: relative;
-        flex-direction: column;
-        padding: 1rem;
-        box-sizing: border-box;
+      margin: 0;
+      background: white;
+      color: black;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
     }
 
     #main-image {
-        width: 80%;
-        max-width: 300px;
-        height: auto;
-        margin: 1rem 0;
+      width: 380px;  /* Adjust size as needed */
+      height: auto;
+      border: none;
+      cursor: pointer;
     }
 
     .link {
@@ -35,20 +32,37 @@
       text-decoration: none;
     }
 
+    #link-top {
+      top: 1px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #link-left {
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    #link-right {
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
     .link:hover {
       text-decoration: underline;
     }
   </style>
 </head>
-<body>
-    <a href="link1.html" class="link" id="link-top">To Book</a>
-  
-    <img src="images/shine.jpg" alt="Teleportation Destination" id="main-image" />
-  
-    <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-      <a href="link2.html" class="link" id="link-left">Flash</a>
-      <a href="https://www.instagram.com/liveangel420/" class="link" id="link-right">Instagram</a>
-    </div>
-  </body>
 
+<body>
+
+  <a href="link1.html" class="link" id="link-top">To Book</a>
+  <a href="link2.html" class="link" id="link-left">Flash</a>
+  <a href="https://www.instagram.com/liveangel420/" class="link" id="link-right">Instagram</a>
+
+  <img src="images/shine.jpg" alt="Teleportation Destination" id="main-image" />
+
+</body>
 </html>
