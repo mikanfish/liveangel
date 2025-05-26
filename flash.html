@@ -28,8 +28,8 @@
     }
 
     .top-bar button {
-      background: black;
-      color: white;
+      background: white;
+      color: black;
       border: none;
       padding: 8px 16px;
       font-size: 16px;
@@ -173,63 +173,55 @@
     const carousel = document.getElementById('carousel');
     const nav = document.getElementById('nav');
     const grid = document.getElementById('grid');
-
+  
     let index = 0;
-
+  
     function updateSlidePosition() {
       const slideWidth = slides.children[0].offsetWidth;
       slides.style.transform = `translateX(-${index * slideWidth}px)`;
     }
-
+  
     function nextSlide() {
       if (index < slides.children.length - 1) {
         index++;
         updateSlidePosition();
       }
     }
-
+  
     function prevSlide() {
       if (index > 0) {
         index--;
         updateSlidePosition();
       }
     }
-
-    // Swipe support
-    let startX = 0;
-    let endX = 0;
-
-    slides.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-    });
-
-    slides.addEventListener('touchend', (e) => {
-      endX = e.changedTouches[0].clientX;
-      handleSwipe();
-    });
-
-    function handleSwipe() {
-      const deltaX = endX - startX;
-      if (deltaX > 50) {
-        prevSlide();
-      } else if (deltaX < -50) {
-        nextSlide();
-      }
-    }
-
+  
     // Grid toggle
     let showingGrid = false;
-
+  
     function toggleGrid() {
       showingGrid = !showingGrid;
       carousel.style.display = showingGrid ? 'none' : 'flex';
       nav.style.display = showingGrid ? 'none' : 'flex';
       grid.style.display = showingGrid ? 'flex' : 'none';
     }
-
+  
+    // Jump to slide from grid
+    function goToSlide(i) {
+      index = i;
+      toggleGrid(); // hide grid and show carousel
+      updateSlidePosition();
+    }
+  
+    // Hook up grid images
+    const gridImages = grid.querySelectorAll('img');
+    gridImages.forEach((img, i) => {
+      img.addEventListener('click', () => goToSlide(i));
+    });
+  
     // Ensure alignment on load
     window.addEventListener('load', updateSlidePosition);
     window.addEventListener('resize', updateSlidePosition);
   </script>
+  
 </body>
 </html>
