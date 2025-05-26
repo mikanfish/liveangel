@@ -12,11 +12,13 @@
     body {
       margin: 0;
       background: white;
+      font-family: sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      height: 100vh;
+      justify-content: center;
+      height: 100%;
+      overflow: hidden;
     }
 
     .carousel {
@@ -30,6 +32,7 @@
       display: flex;
       transition: transform 0.5s ease-in-out;
       width: 100%;
+      touch-action: pan-y;
     }
 
     .slides img {
@@ -43,7 +46,8 @@
     .nav {
       margin-top: 10px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 2rem;
       width: 100%;
       max-width: 600px;
     }
@@ -65,7 +69,7 @@
 </head>
 <body>
 
-  <div class="carousel">
+  <div class="carousel" id="carousel">
     <div class="slides" id="slides">
       <img src="images/angel.jpg" alt="angel">
       <img src="images/angel2.jpg" alt="angel2">
@@ -93,4 +97,53 @@
       <img src="images/text.jpg" alt="text">
       <img src="images/vine.jpg" alt="vine">
     </div>
-  </di
+  </div>
+
+  <div class="nav">
+    <button onclick="prevSlide()">← Prev</button>
+    <button onclick="nextSlide()">Next →</button>
+  </div>
+
+  <script>
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+    let index = 0;
+
+    function updateSlidePosition() {
+      slides.style.transform = `translateX(-${index * 100}vw)`;
+    }
+
+    function nextSlide() {
+      index = (index + 1) % totalSlides;
+      updateSlidePosition();
+    }
+
+    function prevSlide() {
+      index = (index - 1 + totalSlides) % totalSlides;
+      updateSlidePosition();
+    }
+
+    // Swipe support
+    let startX = 0;
+    let endX = 0;
+
+    slides.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    slides.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const deltaX = endX - startX;
+      if (deltaX > 50) {
+        prevSlide();
+      } else if (deltaX < -50) {
+        nextSlide();
+      }
+    }
+  </script>
+</body>
+</html>
