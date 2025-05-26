@@ -20,10 +20,11 @@
     }
 
     .top-bar {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin: 1rem 0;
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
     }
 
     .top-bar button {
@@ -182,18 +183,19 @@
     }
   
     function nextSlide() {
-      if (index < slides.children.length - 1) {
-        index++;
-        updateSlidePosition();
-      }
+        const slides = document.getElementById('slides');
+        const totalSlides = slides.children.length;
+        currentSlide = (currentSlide + 1) % totalSlides; // Wrap to first
+        updateSlide();
     }
-  
+
     function prevSlide() {
-      if (index > 0) {
-        index--;
-        updateSlidePosition();
-      }
+        const slides = document.getElementById('slides');
+        const totalSlides = slides.children.length;
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; // Wrap to last
+        updateSlide();
     }
+
   
     // Grid toggle
     let showingGrid = false;
