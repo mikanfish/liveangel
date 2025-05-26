@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flash Book</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .slides img {
+      width: 100vw;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .nav {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .nav button {
+      background: white;
+      color: black;
+      border: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .nav button:hover {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="carousel">
+    <div class="slides" id="slides">
+      <img src="images/angel.jpg" alt="angel">
+      <img src="images/angel2.jpg" alt="angel2">
+      <img src="images/angel3.jpg" alt="angel3">
+      <img src="images/back.jpg" alt="back">
+      <img src="images/bird2.jpg" alt="bird2">
+      <img src="images/cats.jpg" alt="cats">
+      <img src="images/crest.jpg" alt="crest">
+      <img src="images/cross.jpg" alt="cross">
+      <img src="images/death.jpg" alt="death">
+      <img src="images/dethnote.jpg" alt="dethnote">
+      <img src="images/dragon.jpg" alt="dragon">
+      <img src="images/e2.jpg" alt="e2">
+      <img src="images/flower.jpg" alt="flower">
+      <img src="images/flowers.jpg" alt="flowers">
+      <img src="images/horse1.jpg" alt="horse1">
+      <img src="images/horse2.jpg" alt="horse2">
+      <img src="images/house.jpg" alt="house">
+      <img src="images/lion.jpg" alt="lion">
+      <img src="images/live2.jpg" alt="live2">
+      <img src="images/nb.jpg" alt="nb">
+      <img src="images/rain.jpg" alt="rain">
+      <img src="images/samp.jpg" alt="samp">
+      <img src="images/shine.jpg" alt="shine">
+      <img src="images/text.jpg" alt="text">
+      <img src="images/vine.jpg" alt="vine">
+    </div>
+  </di
