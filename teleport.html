@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teleportation Destination</title>
+  <style>
+    body {
+      margin: 0;
+      background: white;
+      color: black;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    #main-image {
+      max-width: 80vw;
+      max-height: 80vh;
+    }
+
+    .link {
+      position: absolute;
+      color: cyan;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    #link-top {
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #link-left {
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    #link-right {
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="link1.html" class="link" id="link-top">Above Link</a>
+  <a href="link2.html" class="link" id="link-left">Left Link</a>
+  <a href="link3.html" class="link" id="link-right">Right Link</a>
+
+  <img src="images/shine.jpg" alt="Teleportation Destination" id="main-image" />
+
+</body>
+</html>
