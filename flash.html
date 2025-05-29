@@ -20,11 +20,11 @@
     }
 
     .top-bar {
-      width: 100%;
-      max-width: 600px;
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 1rem;
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
     }
 
     .top-bar button {
@@ -200,7 +200,7 @@
         updateSlidePosition();
       }
       else {
-        index = slides.children.length; 
+        index = slides.children.length - 1; 
         updateSlidePosition();
       }
     }
