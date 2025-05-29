@@ -101,9 +101,10 @@
 </head>
 <body>
 
-  <div class="top-bar">
-    <button onclick="toggleGrid()">All</button>
-  </div>
+    <div class="top-bar">
+        <button onclick="location.href='teleport.html'">Back</button>
+        <button id="toggleButton" onclick="toggleGrid()">All</button>
+      </div>
 
   <div class="carousel" id="carousel">
     <div class="slides" id="slides">
@@ -187,11 +188,19 @@
         index++;
         updateSlidePosition();
       }
+      else {
+        index = 0; 
+        updateSlidePosition();
+      }
     }
   
     function prevSlide() {
       if (index > 0) {
         index--;
+        updateSlidePosition();
+      }
+      else {
+        index = slides.children.length; 
         updateSlidePosition();
       }
     }
@@ -200,10 +209,13 @@
     let showingGrid = false;
   
     function toggleGrid() {
-      showingGrid = !showingGrid;
-      carousel.style.display = showingGrid ? 'none' : 'flex';
-      nav.style.display = showingGrid ? 'none' : 'flex';
-      grid.style.display = showingGrid ? 'flex' : 'none';
+        showingGrid = !showingGrid;
+        carousel.style.display = showingGrid ? 'none' : 'flex';
+        nav.style.display = showingGrid ? 'none' : 'flex';
+        grid.style.display = showingGrid ? 'flex' : 'none';
+
+        const toggleButton = document.getElementById('toggleButton');
+        toggleButton.textContent = showingGrid ? 'One' : 'All';
     }
   
     // Jump to slide from grid
