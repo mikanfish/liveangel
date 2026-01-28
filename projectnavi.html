@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+
+    <style>
+        /* =========================
+        BASE RESET
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 14px;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* =========================
+        BACK LINK
+        ========================= */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+        MAIN CONTENT
+        ========================= */
+        .main-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 40px 60px;
+        }
+
+        /* =========================
+        PROJECT GRID
+        ========================= */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .project-item a {
+            text-decoration: none;
+            color: #000;
+            display: block;
+        }
+
+        .project-thumbnail {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: #f2f2f2;
+        }
+
+        .project-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-item a:hover img {
+            opacity: 0.9;
+        }
+
+        /* =========================
+        TITLES
+        ========================= */
+        .project-title {
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .project-year {
+            margin-left: 6px;
+            color: #666;
+        }
+
+        /* =========================
+        RESPONSIVE
+        ========================= */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 80px 20px 40px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Back link -->
+    <a href="teleport.html" class="back-link">back</a>
+
+    <main class="main-content">
+        <section class="project-grid">
+
+            <article class="project-item">
+                <a href="projects/soft-trigger.html">
+                    <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/soft-trigger.jpg" alt="Soft Trigger">
+                    </div>
+                    <h3 class="project-title">
+                        Soft Trigger <span class="project-year">2025</span>
+                    </h3>
+                </a>
+            </article>
+
+            <article class="project-item">
+                <a href="projects/commit-to-memory.html">
+                    <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/commit-to-memory.png" alt="Commit to Memory">
+                    </div>
+                    <h3 class="project-title">
+                        Commit to Memory, Know It Will Perish <span class="project-year">2025</span>
+                    </h3>
+                </a>
+            </article>
+
+            <article class="project-item">
+                <a href="projects/feeling-cloudy.html">
+                    <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/feeling-cloudy.jpg" alt="Feeling Cloudy">
+                    </div>
+                    <h3 class="project-title">
+                        Feeling Cloudy <span class="project-year">2025</span>
+                    </h3>
+                </a>
+            </article>
+
+            <!-- duplicate project-item blocks as needed -->
+
+        </section>
+    </main>
+
+</body>
+</html>
