@@ -1,118 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Translucent Lambskin Tattooing</title>
-
-  <!-- 1️⃣ Base / layout styles -->
-  <style>
-    /* === RESET / BASE === */
-    body {
-      margin: 0;
-      padding: 40px;
-      background: black;
-      color: white;
-      font-family: 'Times New Roman', Times, serif;
-    }
-
-    /* === PAGE LAYOUT === */
-    .project-page {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    /* === CAROUSEL === */
-    .carousel {
-      position: relative;
-      height: 60vh;
-      margin-bottom: 32px;
-    }
-
-    .carousel img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      font-size: 2rem;
-      cursor: pointer;
-    }
-
-    .nav.prev { left: 12px; }
-    .nav.next { right: 12px; }
-
-    /* === DESCRIPTION === */
-    .project-description h1 {
-      margin-bottom: 12px;
-    }
-
-    .project-description p {
-      line-height: 1.6;
-      max-width: 700px;
-    }
-
-    /* === RESPONSIVE === */
-    @media (max-width: 600px) {
-      .carousel {
-        height: 40vh;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lamb skin</title>
+  <link rel="stylesheet" href="project-style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 </head>
-
 <body>
 
-  <!-- 2️⃣ PAGE CONTENT -->
-  <main class="project-page">
+  <!-- Back link -->
+  <a href="projectnavi.html" class="back-link">back</a>
 
-    <!-- Carousel -->
-    <section class="carousel">
-      <button class="nav prev">‹</button>
-      <img id="carousel-image" src="images/ls2p.png" alt="" />
-      <button class="nav next">›</button>
-    </section>
+  <main class="main-content">
+    <article class="project-page">
 
-    <!-- Description -->
-    <section class="project-description">
-      <h1>Translucent Lambskin Tattooing</h1>
-      <p>
-       Translucent lambskin hide, tattoo ink. Approx 30" x 45". <br>
-       Second image is of hide on a window, allowing light to pass through.<br>
-       In this project, I tattooed directly onto translucent lambskin leather 
-       to explore tattooing outside of living human flesh. Leather allowed me to study 
-       how ink behaves without a body to support the tattoo’s recovery. 
-      </p>
-    </section>
+      <header class="project-header">
+        <h1>Lamb skin</h1>
+        <p class="project-meta">
+          2025
+        </p>
+        <p class="project-meta">
+          translucent leather lambskin hide, dynamic black tattoo ink, kwadron 3rlt needle, fx iron flux tattoo machine.
+      </header>
 
+      <section class="project-description">
+        <p>
+           Lambskin 
+        </p>
+
+        <p>
+          text
+        </p>
+
+        <p>
+          text
+        </p>
+
+        <p>
+          text
+        </p>
+
+        <p>
+          
+        </p>
+      </section>
+
+      <section class="project-gallery">
+        <a href="images/ls2.png" class="glightbox" data-gallery="lambskin">
+          <img src="images/ls2.png" alt="Tattooed Lambskin">
+        </a>
+        <a href="images/ls1.jpg" class="glightbox" data-gallery="lambskin">
+          <img src="images/ls1.jpg" alt="Sunlight streaming in">
+        </a>
+      </section>
+
+    </article>
   </main>
 
-  <!-- 3️⃣ SCRIPT (ALWAYS AT BOTTOM) -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
   <script>
-    const images = [
-      "images/ls2p.png",
-      "images/ls1.jpg",
-    ];
-
-    let current = 0;
-    const img = document.getElementById("carousel-image");
-
-    document.querySelector(".next").onclick = () => {
-      current = (current + 1) % images.length;
-      img.src = images[current];
-    };
-
-    document.querySelector(".prev").onclick = () => {
-      current = (current - 1 + images.length) % images.length;
-      img.src = images[current];
-    };
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true,
+      closeButton: true
+    });
   </script>
-
 </body>
 </html>
