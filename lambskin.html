@@ -102,6 +102,13 @@
       opacity: 0.9;
     }
 
+    .project-video video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+
     /* =========================
       RESPONSIVE
       ========================= */
@@ -174,9 +181,12 @@
         </a> <a href="images/detail.png" class="glightbox" data-gallery="lambskin">
           <img src="images/detail.png" alt="detail">
         </a>
-         </a> <a href="images/process.mov" class="glightbox" data-gallery="lambskin">
-          <img src="images/process.mov" alt="process">
-        </a>
+         <div class="project-video">
+          <video controls preload="metadata">
+            <source src="images/process2.mov" type="video/mov">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </section>
 
     </article>
