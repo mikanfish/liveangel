@@ -1,118 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Tattooed Wearables (Bags and Jackets)</title>
-
-  <!-- 1️⃣ Base / layout styles -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wearables</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
   <style>
-    /* === RESET / BASE === */
-    body {
+    /* =========================
+   RESET & BASE
+   ========================= */
+* {
       margin: 0;
-      padding: 40px;
-      background: black;
-      color: white;
-      font-family: 'Times New Roman', Times, serif;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* === PAGE LAYOUT === */
-    .project-page {
+    body {
+      font-family: "Times New Roman", Times, serif;
+      background: #ffffff;
+      color: #000;
+      line-height: 1.6;
+      padding: 0;
+    }
+
+    /* =========================
+      BACK LINK
+      ========================= */
+    .back-link {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 18px;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+      MAIN CONTENT
+      ========================= */
+    .main-content {
       max-width: 900px;
       margin: 0 auto;
+      padding: 80px 40px 60px;
     }
 
-    /* === CAROUSEL === */
-    .carousel {
-      position: relative;
-      height: 60vh;
-      margin-bottom: 32px;
+    /* =========================
+      PROJECT HEADER
+      ========================= */
+    .project-header h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
     }
 
-    .carousel img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+    .project-meta {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
     }
 
-    .nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      font-size: 2rem;
-      cursor: pointer;
-    }
-
-    .nav.prev { left: 12px; }
-    .nav.next { right: 12px; }
-
-    /* === DESCRIPTION === */
-    .project-description h1 {
-      margin-bottom: 12px;
-    }
-
+    /* =========================
+      PROJECT DESCRIPTION
+      ========================= */
     .project-description p {
-      line-height: 1.6;
-      max-width: 700px;
+      font-size: 18px;
+      margin-bottom: 1.5em;
     }
 
-    /* === RESPONSIVE === */
-    @media (max-width: 600px) {
-      .carousel {
-        height: 40vh;
+    .project-description a {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    .project-description a:hover {
+      text-decoration: none;
+    }
+
+    /* =========================
+      PROJECT GALLERY
+      ========================= */
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .project-gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-gallery img:hover {
+      opacity: 0.9;
+    }
+
+    .project-video video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+
+    /* =========================
+      RESPONSIVE
+      ========================= */
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 60px 20px 40px;
+      }
+
+      .project-gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .project-description p {
+        font-size: 16px;
+      }
+
+      .project-header h1 {
+        font-size: 20px;
       }
     }
+
   </style>
 </head>
-
 <body>
 
-  <!-- 2️⃣ PAGE CONTENT -->
-  <main class="project-page">
+  <!-- Back link -->
+  <a href="projectnavi.html" class="back-link">Back</a>
 
-    <!-- Carousel -->
-    <section class="carousel">
-      <button class="nav prev">‹</button>
-      <img id="carousel-image" src="images/htv4.jpg" alt="" />
-      <button class="nav next">›</button>
-    </section>
+  <main class="main-content">
+    <article class="project-page">
 
-    <!-- Description -->
-    <section class="project-description">
-      <h1>Tattooed Wearables (Bags and Jackets)</h1>
-      <p>
-      This series involved tattooing leather bags and jackets as wearable objects. 
-      I was interested in how tattooing translates when removed from the body, 
-      but still circulated publicly through fashion and display. Clothing is both 
-      protection and performance, much like tattoos themselves. 
-      </p>
-    </section>
+      <header class="project-header">
+        <h1>Wearables</h1>
+        <p class="project-meta">
+          2025
+        </p>
+        <p class="project-meta">
+          harley davidson leather jacket, tote leather bag, dynamic black tattoo ink, kwadron 3rlt needle, fx iron flux tattoo machine.
+      </header>
 
+      <section class="project-description">
+        <p>
+           Wearables 
+        </p>
+
+        <p>
+          text
+        </p>
+
+        <p>
+          text
+        </p>
+
+        <p>
+          text
+        </p>
+
+        <p>
+          
+        </p>
+      </section>
+
+      <section class="project-gallery">
+        <a href="images/htv4.jpg" class="glightbox" data-gallery="wearable">
+          <img src="images/htv4.jpg" alt="back of jacket">
+        </a>
+        <a href="images/htv3.jpg" class="glightbox" data-gallery="wearable">
+          <img src="images/htv3.jpg" alt="front of jacket">
+        </a> <a href="images/htv1.jpg" class="glightbox" data-gallery="wearable">
+          <img src="images/htv1.jpg" alt="detail">
+        </a>
+         </a> <a href="images/ls2p.png" class="glightbox" data-gallery="wearable">
+          <img src="images/ls2p.png" alt="bag">
+        </a>
+      </section>
+
+    </article>
   </main>
 
-  <!-- 3️⃣ SCRIPT (ALWAYS AT BOTTOM) -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
   <script>
-    const images = [
-      "images/htv4.jpg",
-      "images/htv3.jpg",
-      "images/labag1.jpg",
-    ];
-
-    let current = 0;
-    const img = document.getElementById("carousel-image");
-
-    document.querySelector(".next").onclick = () => {
-      current = (current + 1) % images.length;
-      img.src = images[current];
-    };
-
-    document.querySelector(".prev").onclick = () => {
-      current = (current - 1 + images.length) % images.length;
-      img.src = images[current];
-    };
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true,
+      closeButton: true
+    });
   </script>
-
 </body>
 </html>
